@@ -27,6 +27,11 @@ router.route('/:id/players')
 router.route('/:id/coins')
 .post(controller.awardCoins)
 
+router.route('/:id/admin')
+.post(controller.makeAdmin)
+
+router.route('/:id/active')
+.post(controller.makeActive)
 
 
 module.exports = router;

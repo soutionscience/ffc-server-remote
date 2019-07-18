@@ -161,3 +161,41 @@ exports.getUserPlayers= (req, res, next)=>{
     })
 
 }
+
+exports.makeAdmin = (req, res, next)=>{
+   
+    User.findById(req.params.id)
+    .exec((err, resp)=>{
+        if(err){
+            console.log('couldnt find player');
+            res.status(400).send({"error":"could not find player"})
+        }else{
+            resp.admin = !resp.admin;
+            resp.manager = !resp.manager;
+            resp.save((err, resp)=>{
+                if(err) res.status(500).send({"error":"could not save user as admin"})
+                res.status(200).json(resp)
+            })
+        }
+    })
+
+}
+
+exports.makeActive = (req, res, next)=>{
+   
+    User.findById(req.params.id)
+    .exec((err, resp)=>{
+        if(err){
+            console.log('couldnt find player');
+            res.status(400).send({"error":"could not find player"})
+        }else{
+            resp.active = true;
+            
+            resp.save((err, resp)=>{
+                if(err) res.status(500).send({"error":"could not activate user"})
+                res.status(200).json(resp)
+            })
+        }
+    })
+
+}

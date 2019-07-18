@@ -21,14 +21,9 @@ let user = new Schema({
     oldTeamValue:{type: Number, default: 0},
     teamValue:{type: Number, default: 0},
     joined:{type: Date, default: Date.now},
-    active:{
-        type: Boolean,
-        default: false
-    },
-    admin:   {
-        type: Boolean,
-        default: false
-    },
+    active:{type: Boolean,default: false},
+    admin:   {type: Boolean,default: false},
+    manager: {type: Boolean, default: false},
     players:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'player'
