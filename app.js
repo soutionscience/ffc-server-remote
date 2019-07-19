@@ -15,7 +15,8 @@ let leagueRouter = require('./routes/league.routes');
 let winnerRouter = require('./routes/winner.routes');
 let compeRouter = require('./routes/compe.routes')
 let feedbackRouter = require('./routes/feedback.routes')
-let messageRouter = require('./routes/message.router')
+
+let messageRouter = require('./routes/message.route')
 
 
 let cors = require('cors');
