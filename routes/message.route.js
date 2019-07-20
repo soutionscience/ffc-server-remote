@@ -6,17 +6,15 @@ const nodemailer = require('nodemailer')
 router.post('/', function(req, res, next){
     console.log('hitting messages')
     const userEmail =`${req.body.email}`
+    const username = `${req.body.name}`
     const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact Details</h3>
-    <ul>  
-      <li>Name: ${req.body.name}</li>
-      <li>Company: ${req.body.company}</li>
-      <li>Email: ${req.body.email}</li>
-      <li>Phone: ${req.body.phone}</li>
-    </ul>
-    <h3>Message</h3>
-    <p>${req.body.message}</p>
+    <p>Hi ${req.body.name}</p> 
+    <p>Thank you for your interest in joining Fantasy coin <br/></p>
+    <p>We please check your email in about 24 hrs to confirm if you can participate <br/></p>
+        
+    <h3>Regards</h3>
+    <p>Fantasy Coin</p>
+    <p>Dev Team</p>
   `;
 
 
