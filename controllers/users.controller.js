@@ -11,13 +11,36 @@ passport.deserializeUser(User.deserializeUser());
 
 
 exports.post =(req, res, next)=>{
-  console.log('hitting user post');
- let newUser= new User(req.body)
- newUser.save((err, resp)=>{
-     if(err) throw err;
-     setTimeout((function() {res.status(200).json(resp)}), 2000);
-     
- })
+    let userNamequery = {username: req.body.username}
+    let userEmailQuery= {email: req.body.email}
+    User.findOne(userNamequery)
+    .exec((err, resp)=>{
+        if(resp){
+            console.log('user name found')
+            res.status(400).send({"error": "username in use"})
+        }
+        else{
+            User.findOne(userEmailQuery)
+            .exec((err, resp)=>{
+                if(resp){
+                 console.log('email already in use');
+                 res.status(400).send({"error": "email in use"})
+                }else{
+                    let newUser= new User(req.body)
+                     newUser.save((err, resp)=>{
+                         if(err) throw err;
+                        // setTimeout((function() {res.status(200).json(resp)}), 2000);
+                        res.status(200).json(resp)
+                         
+                     })
+                    
+
+                }
+            })
+        }
+    })
+  
+  
 
   
 }
