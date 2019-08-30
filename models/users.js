@@ -24,6 +24,7 @@ let user = new Schema({
     active:{type: Boolean,default: false},
     admin:   {type: Boolean,default: false},
     manager: {type: Boolean, default: false},
+    provider: String,
     players:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'player'

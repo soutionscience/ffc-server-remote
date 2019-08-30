@@ -24,7 +24,7 @@ router.get('/:MetaAddress', metaAuth, (req, res) => {
 router.get('/:id/:MetaSignature/:nonce', metaAuth, (req, res)=> {
     let token
     let user
-    console.log('hitting 2')
+    //console.log('hitting 2')
     let publicAddress = req.params.id
     let signature = req.params.MetaSignature
     nonce = req.params.nonce
@@ -47,7 +47,7 @@ router.get('/:id/:MetaSignature/:nonce', metaAuth, (req, res)=> {
       const addressBuffer = ethUtil.publicToAddress(publicKey);
       const address = ethUtil.bufferToHex(addressBuffer)
       if (address.toLowerCase() === publicAddress.toLowerCase()) {
-        // console.log('verification passed!!')
+       // console.log('verification passed!!')
         token = verify.getToken(user)
         // console.log('token ', token)
         res.status(200).json({
@@ -58,12 +58,13 @@ router.get('/:id/:MetaSignature/:nonce', metaAuth, (req, res)=> {
           userId: user._id,
           address: user.address,
           active:user.active,
-          email: user.email
+          email: user.email,
+          provider: user.provider
          
 
         });
       } else {
-        console.log('verification failed')
+        //console.log('verification failed')
         return res
           .status(401)
           .send({ error: 'Signature verification failed' });

@@ -32,6 +32,6 @@ router.route('/:id/admin')
 
 router.route('/:id/active')
 .post(controller.makeActive)
-
+.get(controller.getActiveStatus)
 
 module.exports = router;

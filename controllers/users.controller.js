@@ -29,7 +29,7 @@ exports.post =(req, res, next)=>{
                     let newUser= new User(req.body)
                      newUser.save((err, resp)=>{
                          if(err) throw err;
-                        // setTimeout((function() {res.status(200).json(resp)}), 2000);
+                        console.log('resp ', resp)
                         res.status(200).json(resp)
                          
                      })
@@ -220,5 +220,21 @@ exports.makeActive = (req, res, next)=>{
             })
         }
     })
+
+}
+exports.getActiveStatus =(req, res, next)=>{
+ 
+
+    let query = {address: req.params.id}
+    User.findOne(query)
+    .exec((err, resp)=>{
+        if(!resp){
+            console.log('couldnt find player');
+            res.status(400).send({"error":"could not find player"})
+        }else{
+            res.status(200).send({"status": resp.active})
+        }
+    })
+    
 
 }
