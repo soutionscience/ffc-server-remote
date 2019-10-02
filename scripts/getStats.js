@@ -24,10 +24,10 @@ let playerController = require('../controllers/players.contoller')
 
 
 exports.makeRequest =()=>{
-    request('https://fantasy.premierleague.com/drf/bootstrap-static',  function (error, response, body) {
+    request('https://fantasy.premierleague.com/api/bootstrap-static/',  function (error, response, body) {
   if (!error && response.statusCode == 200) {
     let myresp = JSON.parse(body)
-    console.log('responce ', resp.elements[0].web_name) // Print the google web page.
+    //console.log('responce ', myresp.elements[0].web_name) // Print the google web page.
    
    // playerData.push({"web_name": "Kito"});
    // console.log(playerData)

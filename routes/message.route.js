@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer')
+const nodemailer = require('nodemailer');
+let aws = require('aws-sdk');
+
 
 
 router.post('/', function(req, res, next){
@@ -26,7 +28,7 @@ router.post('/', function(req, res, next){
             secure: true, // true for 465, false for other ports
             auth: {
                 user: 'info@fantasycoiner.com', // generated ethereal user
-                pass: 'Iffcchelski36*' // generated ethereal password
+                pass: 'Iffcchelski20k*' // generated ethereal password
             },
             tls:{
                 rejectUnauthorized: false
