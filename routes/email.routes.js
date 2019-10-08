@@ -21,7 +21,7 @@ var smtpPassword = require('aws-smtp-credentials');
     const output = `
     <p>Hi ${req.body.name}</p> 
     <p>Thank you for your interest in joining Fantasy coin <br/></p>
-    <p>We please check your email in about 24 hrs to confirm if you can participate <br/></p>
+    <p>We please check your email in 24-48 hrs to confirm if you can participate <br/></p>
         
     <h3>Regards</h3>
     <p>Fantasy Coin</p>
