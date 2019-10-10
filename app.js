@@ -17,6 +17,8 @@ let compeRouter = require('./routes/compe.routes')
 let feedbackRouter = require('./routes/feedback.routes')
 
 let messageRouter = require('./routes/email.routes')
+let newUser = require('./routes/newUser.routes')
+let myStats  = require('./routes/mystats.routes')
 
 
 let cors = require('cors');
@@ -73,12 +75,14 @@ app.use('/api/auth', auth)
 app.use('/api/winner', winnerRouter);
 app.use('/api/competitions', compeRouter);
 app.use('/api/feedback', feedbackRouter);
-app.use('/api/messages' , messageRouter)
+app.use('/api/messages' , messageRouter);
+app.use('/api/newUser', newUser);
+app.use('/api/mystat', myStats)
 
 
 //conect mongoose
 
-mongoose.connect(process.env.remoteDb,  { useNewUrlParser: true }, function(err, db){
+mongoose.connect(process.env.localDb,  { useNewUrlParser: true }, function(err, db){
   if(err) throw err
   console.log("connected to remote db");
   database=db
