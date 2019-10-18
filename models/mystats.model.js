@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let myStat = new Schema({
-    getStarted: {type: Number, default: 0}
+    getStarted: {type: Number, default: 0},
+    portisStarted: {type: Number, default: 0},
+    
+
 
 })
 

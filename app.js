@@ -82,7 +82,7 @@ app.use('/api/mystat', myStats)
 
 //conect mongoose
 
-mongoose.connect(process.env.remoteDb,  { useNewUrlParser: true }, function(err, db){
+mongoose.connect(process.env.localDb,  { useNewUrlParser: true }, function(err, db){
   if(err) throw err
   console.log("connected to remote db");
   database=db
