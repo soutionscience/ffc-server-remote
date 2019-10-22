@@ -12,7 +12,7 @@ router.post('/', function(req, res, next){
     const output = `
     <p>Hi ${req.body.name}</p> 
     <p>Thank you for your interest in joining Fantasy coin <br/></p>
-    <p>We please check your email in about 24 hrs to confirm if you can participate <br/></p>
+    <p>We please check your email in about 48 hrs to confirm if you can participate <br/></p>
         
     <h3>Regards</h3>
     <p>Fantasy Coin</p>
@@ -34,7 +34,7 @@ router.post('/', function(req, res, next){
                 rejectUnauthorized: false
             }
         });
-        console.log('user email ', userEmail)
+        //console.log('user email ', userEmail)
         // setup email data with unicode symbols
         let mailOptions = {
             from: '<info@fantasycoiner.com>', // sender address
@@ -49,9 +49,9 @@ router.post('/', function(req, res, next){
             if (error) {
                 return console.log('is the error here?',  error);
             }else{
-            console.log('Message sent: %s', info.messageId);
+            //console.log('Message sent: %s', info.messageId);
             // Preview only available when sending through an Ethereal account
-            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+            ///console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
             res.status(200).json({"msg": "mesage  has been sent"})
         } 
         
